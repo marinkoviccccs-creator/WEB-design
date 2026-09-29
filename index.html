@@ -15,10 +15,6 @@
 
 <style>
 
-h1,h2,h3,h4,h5,h6 {
-  font-family:"Oswald";
-}
-
 * {
   box-sizing:border-box;
 }
@@ -31,6 +27,10 @@ body {
   font-family:"Open Sans";
   margin:0;
   overflow-x:hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family:"Oswald";
 }
 
 img {
@@ -47,22 +47,44 @@ img {
 }
 
 
-/* NASLOV NA SLICI */
+/* ================================= */
+/* GLAVNI HEADER SA SLIKOM */
+/* ================================= */
+
+.hero-header {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+
+.hero-header > img {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.hero-tekst {
+  position:absolute;
+  left:6%;
+  top:50%;
+  transform:translateY(-50%);
+  width:88%;
+}
 
 .blog-naslov {
   font-size:80px;
-  margin-left:60px;
-  margin-bottom:320px;
+  margin:0 0 25px 0;
+  line-height:1.1;
 }
 
 .blog-opis {
   font-size:28px;
-  margin-top:180px;
-  margin-left:60px;
+  margin:0 0 25px 0;
+  line-height:1.4;
 }
 
 .dugme-s {
-  margin-left:60px;
+  margin:0;
 }
 
 
@@ -103,38 +125,59 @@ img {
 }
 
 
-/* ========================================== */
+/* ================================================= */
 /* TABLET */
-/* ========================================== */
+/* ================================================= */
 
-@media screen and (max-width:992px) {
+@media screen and (min-width:601px) and (max-width:992px) {
+
+  /* MENI */
 
   body > .w3-hide-small {
-    flex-wrap:wrap;
+    display:flex !important;
+    flex-wrap:wrap !important;
   }
 
   body > .w3-hide-small a {
-    flex:1 1 33.333% !important;
+    flex:1 1 33.33% !important;
     font-size:16px !important;
+    padding:13px 5px !important;
   }
 
+
+  /* HEADER */
+
+  .hero-header {
+    height:560px;
+  }
+
+  .hero-header > img {
+    width:100%;
+    height:560px;
+    object-fit:cover;
+  }
+
+  .hero-tekst {
+    left:40px;
+    width:calc(100% - 80px);
+  }
 
   .blog-naslov {
     font-size:52px;
-    margin-left:30px;
-    margin-bottom:180px;
+    margin-bottom:20px;
   }
 
   .blog-opis {
-    font-size:21px;
-    margin-left:30px;
-    margin-top:100px;
+    font-size:22px;
+    margin-bottom:20px;
   }
 
-  .dugme-s {
-    margin-left:30px;
-  }
 
+  /* PRVI BLOG */
+
+  .slika-levo img {
+    height:450px;
+  }
 
   .tekst-desno {
     padding-top:30px;
@@ -145,10 +188,8 @@ img {
     padding-right:18px;
   }
 
-  .slika-levo img {
-    height:450px;
-  }
 
+  /* LEVA I DESNA STRANA */
 
   .w3-col.l8 {
     width:100%;
@@ -161,9 +202,9 @@ img {
 }
 
 
-/* ========================================== */
+/* ================================================= */
 /* TELEFON */
-/* ========================================== */
+/* ================================================= */
 
 @media screen and (max-width:600px) {
 
@@ -171,7 +212,7 @@ img {
 
   body > .w3-hide-small {
     display:flex !important;
-    flex-wrap:wrap;
+    flex-wrap:wrap !important;
   }
 
   body > .w3-hide-small a {
@@ -186,14 +227,14 @@ img {
   }
 
 
-  /* GORNJI HEADER */
+  /* GORNJI NASLOV */
 
-  body > .w3-content > header:first-of-type {
+  .w3-content > header:first-of-type {
     padding-top:25px !important;
     padding-bottom:25px !important;
   }
 
-  body > .w3-content > header:first-of-type h1 {
+  .w3-content > header:first-of-type h1 {
     font-size:32px !important;
   }
 
@@ -202,43 +243,37 @@ img {
   }
 
 
-  /* GLAVNA SLIKA */
+  /* HEADER SA SLIKOM */
 
-  #home {
-    height:400px;
-    overflow:hidden;
+  .hero-header {
+    height:420px;
   }
 
-  #home > img {
+  .hero-header > img {
     width:100%;
-    height:400px;
+    height:420px;
     object-fit:cover;
   }
 
-  #home .w3-display-left {
-    width:100%;
-    left:0;
-    padding:20px !important;
+  .hero-tekst {
+    left:20px;
+    width:calc(100% - 40px);
   }
 
   .blog-naslov {
     font-size:38px;
-    line-height:1.1;
-    margin-left:0;
-    margin-bottom:25px;
+    margin-bottom:15px;
   }
 
   .blog-opis {
-    display:block !important;
     font-size:16px;
     line-height:1.4;
-    margin:0 0 20px 0;
+    margin-bottom:18px;
   }
 
   .dugme-s {
-    margin-left:0;
     font-size:14px !important;
-    padding:10px 14px !important;
+    padding:10px 16px !important;
   }
 
 
@@ -249,7 +284,7 @@ img {
   }
 
 
-  /* BLOG KARTICE */
+  /* BLOGOVI */
 
   #nega,
   #makeup,
@@ -277,7 +312,6 @@ img {
   }
 
   .slika-levo img {
-    width:100%;
     height:auto;
   }
 
@@ -319,7 +353,7 @@ img {
   }
 
 
-  /* LEVA I DESNA STRANA */
+  /* KOLONE */
 
   .w3-col.l8,
   .w3-col.l4 {
@@ -337,19 +371,7 @@ img {
   }
 
 
-  /* POPULARNI PROIZVODI */
-
-  #proizvodi li {
-    overflow:hidden;
-  }
-
-  #proizvodi li img {
-    width:50px !important;
-    height:50px !important;
-  }
-
-
-  /* POPUP */
+  /* POPUP PROZORI */
 
   #popup1 .w3-modal-content,
   #popup2 .w3-modal-content,
@@ -368,13 +390,6 @@ img {
   }
 
 
-  /* INSPIRACIJA */
-
-  .w3-white.w3-margin div[style*="grid-template-columns"] {
-    grid-template-columns:1fr 1fr !important;
-  }
-
-
   /* PRETPLATA */
 
   #subscribe {
@@ -387,23 +402,12 @@ img {
     padding:15px !important;
   }
 
-
-  footer {
-    padding:25px 10px !important;
-  }
-
 }
 
 
-/* ========================================== */
-/* MALI TELEFON */
-/* ========================================== */
+/* MALI TELEFONI */
 
 @media screen and (max-width:400px) {
-
-  body > .w3-hide-small a {
-    font-size:13px !important;
-  }
 
   .blog-naslov {
     font-size:32px;
@@ -413,21 +417,12 @@ img {
     font-size:14px;
   }
 
-  #home {
-    height:370px;
+  .hero-header {
+    height:380px;
   }
 
-  #home > img {
-    height:370px;
-  }
-
-
-  .w3-white.w3-margin div[style*="grid-template-columns"] {
-    grid-template-columns:1fr !important;
-  }
-
-  .w3-white.w3-margin div[style*="grid-template-columns"] img {
-    height:auto !important;
+  .hero-header > img {
+    height:380px;
   }
 
 }
@@ -440,7 +435,9 @@ img {
 <body class="w3-light-grey">
 
 
-<!-- Navigation bar -->
+<!-- ================================= -->
+<!-- MENI -->
+<!-- ================================= -->
 
 <div
   class="w3-hide-small"
@@ -450,184 +447,139 @@ img {
     width:100%;
   ">
 
+  <a
+    href="#home"
+    class="w3-button"
+    style="
+      flex:1;
+      text-align:center;
+      font-size:18px;
+      padding:15px 0;
+    ">
+    Početna
+  </a>
 
-<a
-  href="#home"
-  class="w3-button"
-  style="
-    flex:1;
-    text-align:center;
-    font-size:18px;
-    padding:15px 0;
-  ">
+  <a
+    href="#nega"
+    class="w3-button"
+    style="
+      flex:1;
+      text-align:center;
+      font-size:18px;
+      padding:15px 0;
+    ">
+    Nega kože
+  </a>
 
-Početna
+  <a
+    href="#makeup"
+    class="w3-button"
+    style="
+      flex:1;
+      text-align:center;
+      font-size:18px;
+      padding:15px 0;
+    ">
+    Makeup
+  </a>
 
-</a>
+  <a
+    href="#parfemi"
+    class="w3-button"
+    style="
+      flex:1;
+      text-align:center;
+      font-size:18px;
+      padding:15px 0;
+    ">
+    Parfemi
+  </a>
 
-
-<a
-  href="#nega"
-  class="w3-button"
-  style="
-    flex:1;
-    text-align:center;
-    font-size:18px;
-    padding:15px 0;
-  ">
-
-Nega kože
-
-</a>
-
-
-<a
-  href="#makeup"
-  class="w3-button"
-  style="
-    flex:1;
-    text-align:center;
-    font-size:18px;
-    padding:15px 0;
-  ">
-
-Makeup
-
-</a>
-
-
-<a
-  href="#parfemi"
-  class="w3-button"
-  style="
-    flex:1;
-    text-align:center;
-    font-size:18px;
-    padding:15px 0;
-  ">
-
-Parfemi
-
-</a>
-
-
-<a
-  href="#proizvodi"
-  class="w3-button"
-  style="
-    flex:1;
-    text-align:center;
-    font-size:18px;
-    padding:15px 0;
-  ">
-
-Popularni Proizvodi
-
-</a>
+  <a
+    href="#proizvodi"
+    class="w3-button"
+    style="
+      flex:1;
+      text-align:center;
+      font-size:18px;
+      padding:15px 0;
+    ">
+    Popularni Proizvodi
+  </a>
 
 </div>
 
 
-<!-- w3-content -->
-
-<div
-  class="w3-content"
-  style="max-width:1600px">
+<div class="w3-content" style="max-width:1600px">
 
 
-<!-- Header -->
+<!-- ================================= -->
+<!-- GORNJI HEADER -->
+<!-- ================================= -->
 
-<header
-  class="w3-container w3-center w3-padding-48 w3-white">
+<header class="w3-container w3-center w3-padding-48 w3-white">
 
+  <h1 class="w3-xxxlarge">
+    <b>ORIFLAME SWEDEN</b>
+  </h1>
 
-<h1 class="w3-xxxlarge">
+  <h6>
 
-  <b>
-    ORIFLAME SWEDEN
-  </b>
+    <span class="podnaslov-1 w3-tag">
+      Lepota, nega i samopouzdanje
+    </span>
 
-</h1>
-
-
-<h6>
-
-  <span class="podnaslov-1 w3-tag">
-
-    Lepota, nega i samopouzdanje
-
-  </span>
-
-</h6>
-
+  </h6>
 
 </header>
 
 
-<!-- Image header -->
+<!-- ================================= -->
+<!-- HEADER SA SLIKOM -->
+<!-- ================================= -->
 
-<header
-  class="w3-display-container w3-wide"
-  id="home">
+<header class="hero-header w3-wide" id="home">
 
+  <img
+    src="1.jpg"
+    alt="Oriflame Blog">
 
-<img
-  class="w3-image"
-  src="1.jpg"
-  alt="Oriflame Blog"
-  width="1600"
-  height="1060">
+  <div class="hero-tekst">
 
+    <h1 class="blog-naslov w3-text-white">
+      ORIFLAME BLOG
+    </h1>
 
-<div class="w3-display-left w3-padding-large">
+    <h1 class="blog-opis w3-text-white">
 
+      <b>
+        Saveti, inspiracija i novosti iz sveta lepote,<br>
+        wellnessa i Oriflame proizvoda
+      </b>
 
-<h1 class="blog-naslov w3-text-white">
+    </h1>
 
-  ORIFLAME BLOG
+    <button
+      class="dugme-s w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off"
+      onclick="document.getElementById('subscribe').style.display='block'">
 
-</h1>
+      PRETPLATI SE
 
+    </button>
 
-<h1 class="blog-opis w3-text-white w3-hide-small">
-
-  <b>
-
-    Saveti, inspiracija i novosti iz sveta lepote,
-
-    <br>
-
-    wellnessa i Oriflame proizvoda
-
-  </b>
-
-</h1>
-
-
-<h6>
-
-<button
-  class="dugme-s w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off"
-  onclick="document.getElementById('subscribe').style.display='block'">
-
-PRETPLATI SE
-
-</button>
-
-</h6>
-
-
-</div>
+  </div>
 
 </header>
 
 
-<!-- Grid -->
+<!-- ================================= -->
+<!-- GRID -->
+<!-- ================================= -->
 
 <div class="w3-row w3-padding w3-border">
 
 
-<!-- Blog entries -->
+<!-- BLOGOVI -->
 
 <div class="w3-col l8 s12">
 
@@ -640,218 +592,167 @@ PRETPLATI SE
   id="nega"
   class="w3-container w3-white w3-margin w3-padding-large">
 
+  <div class="w3-center">
 
-<div class="w3-center">
+    <h3>
+      5 koraka do zdrave i blistave kože
+    </h3>
 
+    <h5>
 
-<h3>
+      <span class="naziv-oriflame">
+        ORIFLAME SWEDEN,
+      </span>
 
-5 koraka do zdrave i blistave kože
+      <span class="datum-oriflame">
+        Septembar 10, 2026
+      </span>
 
-</h3>
+    </h5>
 
+  </div>
 
-<h5>
 
+  <div class="w3-justify">
 
-<span class="naziv-oriflame">
+    <div class="slika-tekst">
 
-ORIFLAME SWEDEN,
+      <div class="slika-levo">
 
-</span>
+        <img
+          src="koza.jpg"
+          alt="Nega kože"
+          class="w3-padding-16">
 
+      </div>
 
-<span class="datum-oriflame">
 
-Septembar 10, 2026
+      <div class="tekst-desno">
 
-</span>
+        <p>
 
+          <strong>Otkrijte</strong>
+          kako pravilna nega kože može da pruži
+          svež, zdrav i sjajan izgled.
 
-</h5>
+          U ovom članku vam donosimo 5 jednostavnih
+          koraka koji će vašu kožu učiniti lepšom
+          i zdravijom svakog dana.
 
+        </p>
 
-</div>
 
+        <p>
 
-<div class="w3-justify">
+          Zdrava i blistava koža nije rezultat
+          slučajnosti, već pravilne nege i dosledne
+          rutine.
 
+          U ovom tekstu otkrivamo jednostavne
+          korake koji će pomoći vašoj koži da izgleda
+          svežije, nežnije i zdravije, bez obzira
+          na tip kože.
 
-<div class="slika-tekst">
+        </p>
 
 
-<div class="slika-levo">
+        <p>
 
+          Od čišćenja i hidratacije do zaštite,
+          saznajte kako da pravilno negujete svoju
+          kožu i koje Oriflame proizvode
+          preporučujemo za najbolje rezultate.
 
-<img
-  src="koza.jpg"
-  alt="Nega kože"
-  class="w3-padding-16">
+        </p>
 
+      </div>
 
-</div>
+    </div>
 
 
-<div class="tekst-desno">
+    <p class="w3-left">
 
+      <button
+        class="w3-button w3-border"
+        style="background-color:#FFB6C1;color:black;"
+        onclick="likeFunction(this)">
 
-<p>
+        <b>
+          <i class="fa fa-thumbs-up"></i>
+          Like
+        </b>
 
-<strong>
-Otkrijte
-</strong>
+      </button>
 
-kako pravilna nega kože može da pruži
-svež, zdrav i sjajan izgled.
+    </p>
 
-U ovom članku vam donosimo 5 jednostavnih
-koraka koji će vašu kožu učiniti lepšom
-i zdravijom svakog dana.
 
-</p>
+    <p class="w3-right">
 
+      <button
+        class="w3-button"
+        style="background-color:#E88FA3;color:black;"
+        onclick="myFunction('demo1')">
 
-<p>
+        <b>
+          Replies
+        </b>
 
-Zdrava i blistava koža nije rezultat
-slučajnosti, već pravilne nege i dosledne
-rutine.
+        <span
+          class="w3-tag"
+          style="background-color:#C96F85;color:black;">
+          1
+        </span>
 
-U ovom tekstu otkrivamo jednostavne
-korake koji će pomoći vašoj koži da izgleda
-svežije, nežnije i zdravije, bez obzira
-na tip kože.
+      </button>
 
-</p>
+    </p>
 
 
-<p>
+    <p class="w3-clear"></p>
 
-Od čišćenja i hidratacije do zaštite,
-saznajte kako da pravilno negujete svoju
-kožu i koje Oriflame proizvode
-preporučujemo za najbolje rezultate.
 
-</p>
+    <div
+      class="w3-row w3-margin-bottom"
+      id="demo1"
+      style="display:none">
 
+      <hr>
 
-</div>
+      <div class="w3-col l2 m3">
 
-</div>
+        <img
+          src="user.jpg"
+          style="width:90px;">
 
+      </div>
 
-<p class="w3-left">
 
-<button
-  class="w3-button w3-border"
-  style="background-color:#FFB6C1;color:black;"
-  onclick="likeFunction(this)">
+      <div class="w3-col l10 m9">
 
-<b>
+        <h4>
 
-<i class="fa fa-thumbs-up"></i>
+          Jovana
 
-Like
+          <span
+            class="w3-opacity w3-medium"
+            style="color:#E88FA3;margin-left:10px;">
 
-</b>
+            Septembar 11, 2026
 
-</button>
+          </span>
 
-</p>
+        </h4>
 
+        <p>
+          Odličan blog post! Pratim vaš blog.
+        </p>
 
-<p class="w3-right">
+      </div>
 
+    </div>
 
-<button
-  class="w3-button"
-  style="background-color:#E88FA3;color:black;"
-  onclick="myFunction('demo1')"
-  id="myBtn">
-
-
-<b>
-
-Replies
-
-</b>
-
-
-<span
-  class="w3-tag"
-  style="background-color:#C96F85;color:black;">
-
-1
-
-</span>
-
-
-</button>
-
-
-</p>
-
-
-<p class="w3-clear"></p>
-
-
-<div
-  class="w3-row w3-margin-bottom"
-  id="demo1"
-  style="display:none">
-
-
-<hr>
-
-
-<div class="w3-col l2 m3">
-
-
-<img
-  src="user.jpg"
-  style="width:90px;">
-
-
-</div>
-
-
-<div class="w3-col l10 m9">
-
-
-<h4>
-
-
-Jovana
-
-
-<span
-  class="w3-opacity w3-medium"
-  style="
-    color:#E88FA3;
-    margin-left:10px;
-  ">
-
-Septembar 11, 2026
-
-</span>
-
-
-</h4>
-
-
-<p>
-
-Odličan blog post! Pratim vaš blog.
-
-</p>
-
-
-</div>
-
-</div>
-
-
-</div>
+  </div>
 
 </div>
 
@@ -863,237 +764,161 @@ Odličan blog post! Pratim vaš blog.
 <!-- DRUGI BLOG -->
 <!-- ================================= -->
 
-
 <div
   id="makeup"
   class="w3-container w3-white w3-margin w3-padding-large">
 
+  <div class="w3-center">
 
-<div class="w3-center">
+    <h3>
+      Kako napraviti savršen dnevni makeup
+    </h3>
 
+    <h5>
 
-<h3>
+      <span class="naziv-oriflame">
+        ORIFLAME SWEDEN,
+      </span>
 
-Kako napraviti savršen dnevni makeup
+      <span class="datum-oriflame">
+        Septembar 8, 2026
+      </span>
 
-</h3>
+    </h5>
 
+  </div>
 
-<h5>
 
+  <div class="w3-justify">
 
-<span class="naziv-oriflame">
+    <div class="w3-row">
 
-ORIFLAME SWEDEN,
+      <div class="w3-half">
 
-</span>
+        <img
+          src="sminka.jpg"
+          alt="Dnevni makeup"
+          style="width:100%;padding:16px 25px 16px 0;">
 
+      </div>
 
-<span class="datum-oriflame">
 
-Septembar 8, 2026
+      <div
+        class="w3-half"
+        style="padding:45px 0 0 25px;">
 
-</span>
+        <p>
 
+          <strong>Dnevni makeup</strong>
+          treba da istakne vašu prirodnu lepotu,
+          a ne da je prekriva.
 
-</h5>
+          U ovom članku delim sa vama
+          korak po korak vodič kako brzo i lako napravite
+          savršen dnevni izgled, uz proizvode iz Oriflame kolekcije.
 
+        </p>
 
-</div>
 
+        <p>
 
-<div class="w3-justify">
+          Pogledaćemo koje nijanse su idealne za svaki tip kože,
+          kao i nekoliko korisnih trikova za dugotrajnost.
 
+        </p>
 
-<div class="w3-row">
 
+        <p class="w3-left">
 
-<div class="w3-half">
+          <button
+            class="w3-button"
+            style="
+              background-color:#FFB6C1;
+              color:black;
+              border:1px solid #E88FA3;
+            "
+            onclick="likeFunction(this)">
 
+            <b>
+              <i class="fa fa-thumbs-up"></i>
+              Like
+            </b>
 
-<img
-  src="sminka.jpg"
-  alt="Dnevni makeup"
-  style="
-    width:100%;
-    padding:16px 25px 16px 0;
-  ">
+          </button>
 
+        </p>
 
-</div>
 
+        <p class="w3-right">
 
-<div
-  class="w3-half"
-  style="
-    padding:45px 0 0 25px;
-  ">
+          <button
+            class="w3-button"
+            style="background-color:#E88FA3;color:black;"
+            onclick="myFunction('demo2')">
 
+            <b>
+              Replies
+            </b>
 
-<p>
+            <span
+              class="w3-tag"
+              style="background-color:#FFB6C1;color:black;">
+              1
+            </span>
 
+          </button>
 
-<strong>
+        </p>
 
-Dnevni makeup
+      </div>
 
-</strong>
+    </div>
 
-treba da istakne vašu prirodnu lepotu,
-a ne da je prekriva.
 
-U ovom članku delim sa vama
-korak po korak vodič kako brzo i lako napravite
-savršen dnevni izgled, uz proizvode iz Oriflame kolekcije.
+    <p class="w3-clear"></p>
 
 
-</p>
+    <div id="demo2" style="display:none">
 
+      <div class="w3-row">
 
-<p>
+        <hr>
 
+        <div class="w3-col l2 m3">
 
-Pogledaćemo koje nijanse su idealne za svaki tip kože,
-kao i nekoliko korisnih trikova za dugotrajnost.
+          <img
+            src="user1.jpg"
+            style="width:90px;">
 
+        </div>
 
-</p>
+        <div class="w3-col l10 m9">
 
+          <h4>
 
-<p class="w3-left">
+            Ivana
 
+            <span
+              class="w3-medium"
+              style="color:#E88FA3;margin-left:10px;">
 
-<button
-  class="w3-button"
-  style="
-    background-color:#FFB6C1;
-    color:black;
-    border:1px solid #E88FA3;
-  "
-  onclick="likeFunction(this)">
+              Septembar 9, 2026
 
+            </span>
 
-<b>
+          </h4>
 
-<i class="fa fa-thumbs-up"></i>
+          <p>
+            Predivan tekst i korisni saveti!
+          </p>
 
-Like
+        </div>
 
-</b>
+      </div>
 
+    </div>
 
-</button>
-
-
-</p>
-
-
-<p class="w3-right">
-
-
-<button
-  class="w3-button"
-  style="
-    background-color:#E88FA3;
-    color:black;
-  "
-  onclick="myFunction('demo2')">
-
-
-<b>
-
-Replies
-
-</b>
-
-
-<span
-  class="w3-tag"
-  style="
-    background-color:#FFB6C1;
-    color:black;
-  ">
-
-1
-
-</span>
-
-
-</button>
-
-
-</p>
-
-
-</div>
-
-</div>
-
-
-<p class="w3-clear"></p>
-
-
-<div
-  id="demo2"
-  style="display:none">
-
-
-<div class="w3-row">
-
-
-<hr>
-
-
-<div class="w3-col l2 m3">
-
-
-<img
-  src="user1.jpg"
-  style="width:90px;">
-
-
-</div>
-
-
-<div class="w3-col l10 m9">
-
-
-<h4>
-
-
-Ivana
-
-
-<span
-  class="w3-medium"
-  style="
-    color:#E88FA3;
-    margin-left:10px;
-  ">
-
-Septembar 9, 2026
-
-</span>
-
-
-</h4>
-
-
-<p>
-
-Predivan tekst i korisni saveti!
-
-</p>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
+  </div>
 
 </div>
 
@@ -1105,242 +930,171 @@ Predivan tekst i korisni saveti!
 <!-- TREĆI BLOG -->
 <!-- ================================= -->
 
-
 <div
   id="parfemi"
   class="w3-container w3-white w3-margin w3-padding-large">
 
+  <div class="w3-center">
 
-<div class="w3-center">
+    <h3>
+      Parfem koji govori nešto o tebi
+    </h3>
 
+    <h5>
 
-<h3>
+      <span class="naziv-oriflame">
+        ORIFLAME SWEDEN,
+      </span>
 
-Parfem koji govori nešto o tebi
+      <span class="datum-oriflame">
+        Septembar 5, 2026
+      </span>
 
-</h3>
+    </h5>
 
-
-<h5>
-
-
-<span class="naziv-oriflame">
-
-ORIFLAME SWEDEN,
-
-</span>
-
-
-<span class="datum-oriflame">
-
-Septembar 5, 2026
-
-</span>
+  </div>
 
 
-</h5>
+  <div class="w3-justify">
 
+    <div
+      style="
+        display:flex;
+        gap:25px;
+        align-items:flex-start;
+      ">
+
+      <img
+        src="miris.jpg"
+        style="
+          width:48%;
+          display:block;
+        "
+        class="w3-padding-16">
+
+
+      <div
+        style="
+          flex:1;
+          padding-top:35px;
+        ">
+
+        <p>
+
+          <strong>
+            Parfem je mnogo više od mirisa
+          </strong>
+
+          - to je deo vaše ličnosti,
+          vaše energije i vašeg stila.
+
+          U ovom tekstu otkrivam vam
+          kako da odaberete parfem koji
+          savršeno odražava vas.
+
+        </p>
+
+
+        <p>
+
+          Predstavljam vam omiljeni Oriflame miris,
+          takođe vam dajem savete za izbor i kako
+          da pronađete onaj pravi, koji će ostaviti
+          utisak gde god da se pojavite.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <p class="w3-left">
+
+      <button
+        class="w3-button w3-border"
+        style="background-color:#FFB6C1;color:black;"
+        onclick="likeFunction(this)">
+
+        <b>
+          <i class="fa fa-thumbs-up"></i>
+          Like
+        </b>
+
+      </button>
+
+    </p>
+
+
+    <p class="w3-right">
+
+      <button
+        class="w3-button"
+        style="background-color:#E88FA3;color:black;"
+        onclick="myFunction('demo3')">
+
+        <b>
+          Replies
+        </b>
+
+        <span
+          class="w3-tag"
+          style="background-color:#C96F85;color:black;">
+          1
+        </span>
+
+      </button>
+
+    </p>
+
+
+    <p class="w3-clear"></p>
+
+
+    <div id="demo3" style="display:none">
+
+      <hr>
+
+      <div class="w3-row w3-margin-bottom">
+
+        <div class="w3-col l2 m3">
+
+          <img
+            src="user2.jpg"
+            style="width:90px;">
+
+        </div>
+
+
+        <div class="w3-col l10 m9">
+
+          <h4>
+
+            Martina
+
+            <span
+              class="w3-opacity w3-medium"
+              style="color:#E88FA3;margin-left:10px;">
+
+              Septembar 6, 2026
+
+            </span>
+
+          </h4>
+
+          <p>
+            Odličan parfem!
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
-
-
-<div class="w3-justify">
-
-
-<div
-  style="
-    display:flex;
-    gap:25px;
-    align-items:flex-start;
-  ">
-
-
-<img
-  src="miris.jpg"
-  style="
-    width:48%;
-    display:block;
-  "
-  class="w3-padding-16">
-
-
-<div
-  style="
-    flex:1;
-    padding-top:35px;
-  ">
-
-
-<p>
-
-
-<strong>
-
-Parfem je mnogo više od mirisa
-
-</strong>
-
-- to je deo vaše ličnosti,
-vaše energije i vašeg stila.
-
-U ovom tekstu otkrivam vam
-kako da odaberete parfem koji
-savršeno odražava vas.
-
-
-</p>
-
-
-<p>
-
-
-Predstavljam vam omiljeni Oriflame miris,
-takođe vam dajem savete za izbor i kako
-da pronađete onaj pravi, koji će ostaviti
-utisak gde god da se pojavite.
-
-
-</p>
-
-
-</div>
-
-</div>
-
-
-<p class="w3-left">
-
-
-<button
-  class="w3-button w3-border"
-  style="
-    background-color:#FFB6C1;
-    color:black;
-  "
-  onclick="likeFunction(this)">
-
-
-<b>
-
-<i class="fa fa-thumbs-up"></i>
-
-Like
-
-</b>
-
-
-</button>
-
-
-</p>
-
-
-<p class="w3-right">
-
-
-<button
-  class="w3-button"
-  style="
-    background-color:#E88FA3;
-    color:black;
-  "
-  onclick="myFunction('demo3')">
-
-
-<b>
-
-Replies
-
-</b>
-
-
-<span
-  class="w3-tag"
-  style="
-    background-color:#C96F85;
-    color:black;
-  ">
-
-1
-
-</span>
-
-
-</button>
-
-
-</p>
-
-
-<p class="w3-clear"></p>
-
-
-<div
-  id="demo3"
-  style="display:none">
-
-
-<hr>
-
-
-<div class="w3-row w3-margin-bottom">
-
-
-<div class="w3-col l2 m3">
-
-
-<img
-  src="user2.jpg"
-  style="width:90px;">
-
-
-</div>
-
-
-<div class="w3-col l10 m9">
-
-
-<h4>
-
-
-Martina
-
-
-<span
-  class="w3-opacity w3-medium"
-  style="
-    color:#E88FA3;
-    margin-left:10px;
-  ">
-
-Septembar 6, 2026
-
-</span>
-
-
-</h4>
-
-
-<p>
-
-Odličan parfem!
-
-</p>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- END BLOG ENTRIES -->
 
 </div>
 
@@ -1352,39 +1106,31 @@ Odličan parfem!
 <div class="w3-col l4">
 
 
-<!-- About Card -->
-
 <div class="w3-white w3-margin">
 
-
-<img
-  src="energija.jpg"
-  alt="Oriflame"
-  style="width:100%">
-
-
-<div
-  class="w3-container"
-  style="background-color:#FFB6C1;">
+  <img
+    src="energija.jpg"
+    alt="Oriflame"
+    style="width:100%">
 
 
-<h4>
+  <div
+    class="w3-container"
+    style="background-color:#FFB6C1;">
 
-Oriflame Beauty
+    <h4>
+      Oriflame Beauty
+    </h4>
 
-</h4>
+    <p>
 
+      Dobrodošli na moj Oriflame blog,
+      mesto za savete, inspiraciju i novosti
+      iz sveta lepote, nege i wellnessa.
 
-<p>
+    </p>
 
-Dobrodošli na moj Oriflame blog,
-mesto za savete, inspiraciju i novosti
-iz sveta lepote, nege i wellnessa.
-
-</p>
-
-
-</div>
+  </div>
 
 </div>
 
@@ -1392,183 +1138,123 @@ iz sveta lepote, nege i wellnessa.
 <hr>
 
 
-<!-- ================================= -->
 <!-- POPULARNI PROIZVODI -->
-<!-- ================================= -->
 
 <div
   id="proizvodi"
   class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4>
+      Popularni proizvodi
+    </h4>
 
+  </div>
 
-<h4>
 
-Popularni proizvodi
+  <ul class="w3-ul w3-hoverable w3-white">
 
-</h4>
 
+    <li
+      class="w3-padding-16"
+      onclick="document.getElementById('popup1').style.display='block'"
+      style="cursor:pointer">
 
-</div>
+      <img
+        src="koza.jpg"
+        alt="Nega kože"
+        class="w3-left w3-margin-right"
+        style="width:50px;height:50px;object-fit:cover">
 
+      <span class="w3-large">
+        Nega kože
+      </span>
 
-<ul class="w3-ul w3-hoverable w3-white">
+      <br>
 
+      <span>
+        Saveti za zdravu kožu
+      </span>
 
-<li
-  class="w3-padding-16"
-  onclick="document.getElementById('popup1').style.display='block'"
-  style="cursor:pointer">
+    </li>
 
 
-<img
-  src="koza.jpg"
-  alt="Nega kože"
-  class="w3-left w3-margin-right"
-  style="
-    width:50px;
-    height:50px;
-    object-fit:cover;
-  ">
+    <li
+      class="w3-padding-16"
+      onclick="document.getElementById('popup2').style.display='block'"
+      style="cursor:pointer">
 
+      <img
+        src="3.jpg"
+        alt="Kupka za telo"
+        class="w3-left w3-margin-right"
+        style="width:50px;height:50px;object-fit:cover">
 
-<span class="w3-large">
+      <span class="w3-large">
+        Kupka za telo
+      </span>
 
-Nega kože
+      <br>
 
-</span>
+      <span>
+        Predivan miris tela uz našu predivnu kupku
+      </span>
 
+    </li>
 
-<br>
 
+    <li
+      class="w3-padding-16"
+      onclick="document.getElementById('popup3').style.display='block'"
+      style="cursor:pointer">
 
-<span>
+      <img
+        src="sminka.jpg"
+        alt="Lepota"
+        class="w3-left w3-margin-right"
+        style="width:50px;height:50px;object-fit:cover">
 
-Saveti za zdravu kožu
+      <span class="w3-large">
+        Lepota
+      </span>
 
-</span>
+      <br>
 
+      <span>
+        Neka vam svakodnevna rutina bude uz malo šminke,
+        da još više zasijate
+      </span>
 
-</li>
+    </li>
 
 
-<li
-  class="w3-padding-16"
-  onclick="document.getElementById('popup2').style.display='block'"
-  style="cursor:pointer">
+    <li
+      class="w3-padding-16"
+      onclick="document.getElementById('popup4').style.display='block'"
+      style="cursor:pointer">
 
+      <img
+        src="energija.jpg"
+        alt="Wellness"
+        class="w3-left w3-margin-right"
+        style="width:50px;height:50px;object-fit:cover">
 
-<img
-  src="3.jpg"
-  alt="Kupka za telo"
-  class="w3-left w3-margin-right"
-  style="
-    width:50px;
-    height:50px;
-    object-fit:cover;
-  ">
+      <span class="w3-large">
+        Wellness
+      </span>
 
+      <br>
 
-<span class="w3-large">
+      <span>
+        Vreme za sebe
+      </span>
 
-Kupka za telo
+    </li>
 
-</span>
-
-
-<br>
-
-
-<span>
-
-Predivan miris tela uz našu predivnu kupku
-
-</span>
-
-
-</li>
-
-
-<li
-  class="w3-padding-16"
-  onclick="document.getElementById('popup3').style.display='block'"
-  style="cursor:pointer">
-
-
-<img
-  src="sminka.jpg"
-  alt="Lepota"
-  class="w3-left w3-margin-right"
-  style="
-    width:50px;
-    height:50px;
-    object-fit:cover;
-  ">
-
-
-<span class="w3-large">
-
-Lepota
-
-</span>
-
-
-<br>
-
-
-<span>
-
-Neka vam svakodnevna rutina bude uz malo šminke,
-da još više zasijate
-
-</span>
-
-
-</li>
-
-
-<li
-  class="w3-padding-16"
-  onclick="document.getElementById('popup4').style.display='block'"
-  style="cursor:pointer">
-
-
-<img
-  src="energija.jpg"
-  alt="Wellness"
-  class="w3-left w3-margin-right"
-  style="
-    width:50px;
-    height:50px;
-    object-fit:cover;
-  ">
-
-
-<span class="w3-large">
-
-Wellness
-
-</span>
-
-
-<br>
-
-
-<span>
-
-Vreme za sebe
-
-</span>
-
-
-</li>
-
-
-</ul>
+  </ul>
 
 </div>
 
@@ -1578,329 +1264,265 @@ Vreme za sebe
 
 <!-- POPUP 1 -->
 
-<div
-  id="popup1"
-  class="w3-modal">
+<div id="popup1" class="w3-modal">
+
+  <div
+    class="w3-modal-content w3-card-4 w3-animate-zoom"
+    style="max-width:600px">
+
+    <header
+      class="w3-container"
+      style="background-color:#FFB6C1">
+
+      <span
+        onclick="document.getElementById('popup1').style.display='none'"
+        class="w3-button w3-display-topright w3-large">
+
+        &times;
+
+      </span>
+
+      <h2>
+        Nega kože
+      </h2>
+
+    </header>
 
 
-<div
-  class="w3-modal-content w3-card-4 w3-animate-zoom"
-  style="max-width:600px">
+    <div class="w3-container w3-center w3-padding-32">
 
+      <img
+        src="koza.jpg"
+        alt="Nega kože"
+        style="
+          width:250px;
+          height:250px;
+          object-fit:cover;
+        ">
 
-<header
-  class="w3-container"
-  style="background-color:#FFB6C1">
+      <h3>
+        Nega i hidratacija kože
+      </h3>
 
+      <p>
 
-<span
-  onclick="document.getElementById('popup1').style.display='none'"
-  class="w3-button w3-display-topright w3-large">
+        Pravilna nega kože je važan deo svakodnevne
+        rutine. Odaberite proizvode koji odgovaraju
+        vašem tipu kože i pružite joj potrebnu
+        hidrataciju i nežnost.
 
-&times;
+      </p>
 
-</span>
+      <button
+        class="w3-button"
+        style="background-color:#FFB6C1"
+        onclick="document.getElementById('popup1').style.display='none'">
 
+        ZATVORI
 
-<h2>
+      </button>
 
-Nega kože
+    </div>
 
-</h2>
-
-
-</header>
-
-
-<div class="w3-container w3-center w3-padding-32">
-
-
-<img
-  src="koza.jpg"
-  alt="Nega kože"
-  style="
-    width:250px;
-    height:250px;
-    object-fit:cover;
-  ">
-
-
-<h3>
-
-Nega i hidratacija kože
-
-</h3>
-
-
-<p>
-
-Pravilna nega kože je važan deo svakodnevne
-rutine. Odaberite proizvode koji odgovaraju
-vašem tipu kože i pružite joj potrebnu
-hidrataciju i nežnost.
-
-</p>
-
-
-<button
-  class="w3-button"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('popup1').style.display='none'">
-
-ZATVORI
-
-</button>
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- POPUP 2 -->
 
-<div
-  id="popup2"
-  class="w3-modal">
+<div id="popup2" class="w3-modal">
+
+  <div
+    class="w3-modal-content w3-card-4 w3-animate-zoom"
+    style="max-width:600px">
+
+    <header
+      class="w3-container"
+      style="background-color:#FFB6C1">
+
+      <span
+        onclick="document.getElementById('popup2').style.display='none'"
+        class="w3-button w3-display-topright w3-large">
+
+        &times;
+
+      </span>
+
+      <h2>
+        Kupka za telo
+      </h2>
+
+    </header>
 
 
-<div
-  class="w3-modal-content w3-card-4 w3-animate-zoom"
-  style="max-width:600px">
+    <div class="w3-container w3-center w3-padding-32">
 
+      <img
+        src="3.jpg"
+        alt="Kupka za telo"
+        style="
+          width:250px;
+          height:250px;
+          object-fit:cover;
+        ">
 
-<header
-  class="w3-container"
-  style="background-color:#FFB6C1">
+      <h3>
+        Uživajte u prijatnom mirisu
+      </h3>
 
+      <p>
 
-<span
-  onclick="document.getElementById('popup2').style.display='none'"
-  class="w3-button w3-display-topright w3-large">
+        Pretvorite svakodnevno kupanje u trenutak
+        opuštanja. Prijatan miris i nežna nega mogu
+        učiniti vašu svakodnevnu rutinu još lepšom.
 
-&times;
+      </p>
 
-</span>
+      <button
+        class="w3-button"
+        style="background-color:#FFB6C1"
+        onclick="document.getElementById('popup2').style.display='none'">
 
+        ZATVORI
 
-<h2>
+      </button>
 
-Kupka za telo
+    </div>
 
-</h2>
-
-
-</header>
-
-
-<div class="w3-container w3-center w3-padding-32">
-
-
-<img
-  src="3.jpg"
-  alt="Kupka za telo"
-  style="
-    width:250px;
-    height:250px;
-    object-fit:cover;
-  ">
-
-
-<h3>
-
-Uživajte u prijatnom mirisu
-
-</h3>
-
-
-<p>
-
-Pretvorite svakodnevno kupanje u trenutak
-opuštanja. Prijatan miris i nežna nega mogu
-učiniti vašu svakodnevnu rutinu još lepšom.
-
-</p>
-
-
-<button
-  class="w3-button"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('popup2').style.display='none'">
-
-ZATVORI
-
-</button>
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- POPUP 3 -->
 
-<div
-  id="popup3"
-  class="w3-modal">
+<div id="popup3" class="w3-modal">
+
+  <div
+    class="w3-modal-content w3-card-4 w3-animate-zoom"
+    style="max-width:600px">
+
+    <header
+      class="w3-container"
+      style="background-color:#FFB6C1">
+
+      <span
+        onclick="document.getElementById('popup3').style.display='none'"
+        class="w3-button w3-display-topright w3-large">
+
+        &times;
+
+      </span>
+
+      <h2>
+        Lepota
+      </h2>
+
+    </header>
 
 
-<div
-  class="w3-modal-content w3-card-4 w3-animate-zoom"
-  style="max-width:600px">
+    <div class="w3-container w3-center w3-padding-32">
 
+      <img
+        src="sminka.jpg"
+        alt="Lepota"
+        style="
+          width:250px;
+          height:250px;
+          object-fit:cover;
+        ">
 
-<header
-  class="w3-container"
-  style="background-color:#FFB6C1">
+      <h3>
+        Istaknite svoju lepotu
+      </h3>
 
+      <p>
 
-<span
-  onclick="document.getElementById('popup3').style.display='none'"
-  class="w3-button w3-display-topright w3-large">
+        Malo šminke može biti savršen dodatak vašoj
+        svakodnevnoj rutini. Izaberite proizvode koji
+        odgovaraju vašem stilu i zablistajte svaki dan.
 
-&times;
+      </p>
 
-</span>
+      <button
+        class="w3-button"
+        style="background-color:#FFB6C1"
+        onclick="document.getElementById('popup3').style.display='none'">
 
+        ZATVORI
 
-<h2>
+      </button>
 
-Lepota
+    </div>
 
-</h2>
-
-
-</header>
-
-
-<div class="w3-container w3-center w3-padding-32">
-
-
-<img
-  src="sminka.jpg"
-  alt="Lepota"
-  style="
-    width:250px;
-    height:250px;
-    object-fit:cover;
-  ">
-
-
-<h3>
-
-Istaknite svoju lepotu
-
-</h3>
-
-
-<p>
-
-Malo šminke može biti savršen dodatak vašoj
-svakodnevnoj rutini. Izaberite proizvode koji
-odgovaraju vašem stilu i zablistajte svaki dan.
-
-</p>
-
-
-<button
-  class="w3-button"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('popup3').style.display='none'">
-
-ZATVORI
-
-</button>
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- POPUP 4 -->
 
-<div
-  id="popup4"
-  class="w3-modal">
+<div id="popup4" class="w3-modal">
+
+  <div
+    class="w3-modal-content w3-card-4 w3-animate-zoom"
+    style="max-width:600px">
+
+    <header
+      class="w3-container"
+      style="background-color:#FFB6C1">
+
+      <span
+        onclick="document.getElementById('popup4').style.display='none'"
+        class="w3-button w3-display-topright w3-large">
+
+        &times;
+
+      </span>
+
+      <h2>
+        Wellness
+      </h2>
+
+    </header>
 
 
-<div
-  class="w3-modal-content w3-card-4 w3-animate-zoom"
-  style="max-width:600px">
+    <div class="w3-container w3-center w3-padding-32">
 
+      <img
+        src="energija.jpg"
+        alt="Wellness"
+        style="
+          width:250px;
+          height:250px;
+          object-fit:cover;
+        ">
 
-<header
-  class="w3-container"
-  style="background-color:#FFB6C1">
+      <h3>
+        Vreme za sebe
+      </h3>
 
+      <p>
 
-<span
-  onclick="document.getElementById('popup4').style.display='none'"
-  class="w3-button w3-display-topright w3-large">
+        Odvojite vreme za odmor i opuštanje.
+        Wellness rutina može biti lep način da
+        napravite mali trenutak samo za sebe.
 
-&times;
+      </p>
 
-</span>
+      <button
+        class="w3-button"
+        style="background-color:#FFB6C1"
+        onclick="document.getElementById('popup4').style.display='none'">
 
+        ZATVORI
 
-<h2>
+      </button>
 
-Wellness
+    </div>
 
-</h2>
-
-
-</header>
-
-
-<div class="w3-container w3-center w3-padding-32">
-
-
-<img
-  src="energija.jpg"
-  alt="Wellness"
-  style="
-    width:250px;
-    height:250px;
-    object-fit:cover;
-  ">
-
-
-<h3>
-
-Vreme za sebe
-
-</h3>
-
-
-<p>
-
-Odvojite vreme za odmor i opuštanje.
-Wellness rutina može biti lep način da
-napravite mali trenutak samo za sebe.
-
-</p>
-
-
-<button
-  class="w3-button"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('popup4').style.display='none'">
-
-ZATVORI
-
-</button>
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
@@ -1908,47 +1530,39 @@ ZATVORI
 <hr>
 
 
-<!-- Advertising -->
+<!-- ORIFLAME -->
 
 <div class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4>
+      Oriflame
+    </h4>
 
-
-<h4>
-
-Oriflame
-
-</h4>
+  </div>
 
 
-</div>
+  <div class="w3-container w3-white">
 
+    <div
+      class="w3-container w3-light-grey w3-section"
+      style="padding:0;">
 
-<div class="w3-container w3-white">
+      <img
+        src="6.jpg"
+        alt="Wellness"
+        style="
+          width:100%;
+          height:auto;
+          display:block;
+        ">
 
+    </div>
 
-<div
-  class="w3-container w3-light-grey w3-section"
-  style="padding:0;">
-
-
-<img
-  src="6.jpg"
-  alt="Wellness"
-  style="
-    width:100%;
-    height:auto;
-    display:block;
-  ">
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
@@ -1956,99 +1570,70 @@ Oriflame
 <hr>
 
 
-<!-- Tags -->
+<!-- TAGOVI -->
 
 <div class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4>
+      Tags
+    </h4>
 
-
-<h4>
-
-Tags
-
-</h4>
+  </div>
 
 
-</div>
+  <div class="w3-container w3-white">
 
+    <p>
 
-<div class="w3-container w3-white">
+      <span
+        class="w3-tag w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Oriflame
+      </span>
 
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Nega kože
+      </span>
 
-<p>
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Lepota
+      </span>
 
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Wellness
+      </span>
 
-<span
-  class="w3-tag w3-margin-bottom"
-  style="background-color:#FFB6C1;">
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Hidratacija
+      </span>
 
-Oriflame
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Samopouzdanje
+      </span>
 
-</span>
+      <span
+        class="w3-tag w3-small w3-margin-bottom"
+        style="background-color:#FFB6C1;">
+        Inspiracija
+      </span>
 
+    </p>
 
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Nega kože
-
-</span>
-
-
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Lepota
-
-</span>
-
-
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Wellness
-
-</span>
-
-
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Hidratacija
-
-</span>
-
-
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Samopouzdanje
-
-</span>
-
-
-<span
-  class="w3-tag w3-small w3-margin-bottom"
-  style="background-color:#FFB6C1;">
-
-Inspiracija
-
-</span>
-
-
-</p>
-
-
-</div>
+  </div>
 
 </div>
 
@@ -2056,81 +1641,71 @@ Inspiracija
 <hr>
 
 
-<!-- Inspiration -->
+<!-- INSPIRACIJA -->
 
 <div class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4 style="margin:0;">
+      Inspiracija
+    </h4>
 
-
-<h4 style="margin:0;">
-
-Inspiracija
-
-</h4>
+  </div>
 
 
-</div>
+  <div
+    style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      padding:10px;
+      background-color:white;
+    ">
 
+    <img
+      src="katalog.jpg"
+      alt="Nega kože"
+      style="
+        width:100%;
+        height:200px;
+        object-fit:contain;
+        display:block;
+      ">
 
-<div
-  style="
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    padding:10px;
-    background-color:white;
-  ">
+    <img
+      src="elegancija.jpg"
+      alt="Wellness"
+      style="
+        width:100%;
+        height:200px;
+        object-fit:contain;
+        display:block;
+      ">
 
+    <img
+      src="razlika.jpg"
+      alt="Energija"
+      style="
+        width:100%;
+        height:200px;
+        object-fit:contain;
+        display:block;
+      ">
 
-<img
-  src="katalog.jpg"
-  alt="Nega kože"
-  style="
-    width:100%;
-    height:200px;
-    object-fit:contain;
-    display:block;
-  ">
+    <img
+      src="prirodno.jpg"
+      alt="Beauty"
+      style="
+        width:100%;
+        height:200px;
+        object-fit:contain;
+        display:block;
+      ">
 
-
-<img
-  src="elegancija.jpg"
-  alt="Wellness"
-  style="
-    width:100%;
-    height:200px;
-    object-fit:contain;
-    display:block;
-  ">
-
-
-<img
-  src="razlika.jpg"
-  alt="Energija"
-  style="
-    width:100%;
-    height:200px;
-    object-fit:contain;
-    display:block;
-  ">
-
-
-<img
-  src="prirodno.jpg"
-  alt="Beauty"
-  style="
-    width:100%;
-    height:200px;
-    object-fit:contain;
-    display:block;
-  ">
-
-
-</div>
+  </div>
 
 </div>
 
@@ -2138,91 +1713,68 @@ Inspiracija
 <hr>
 
 
-<!-- Follow Me -->
+<!-- ZAPRATI ME -->
 
 <div class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4>
+      Zaprati me
+    </h4>
 
-
-<h4>
-
-Zaprati me
-
-</h4>
+  </div>
 
 
-</div>
+  <div
+    class="w3-container w3-xlarge w3-padding"
+    style="
+      display:flex;
+      justify-content:space-around;
+      align-items:center;
+      font-size:42px;
+      padding-top:18px;
+      padding-bottom:18px;
+    ">
+
+    <a
+      href="https://play.google.com/store/apps/details/Oriflame?id=com.oriflame.mv7.app&hl=sr&pli=1"
+      target="_blank"
+      style="text-decoration:none;color:#E88FA3;">
+
+      <i class="fa fa-mobile w3-hover-opacity"></i>
+
+    </a>
 
 
-<div
-  class="w3-container w3-xlarge w3-padding"
-  style="
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    font-size:42px;
-    padding-top:18px;
-    padding-bottom:18px;
-  ">
+    <a
+      href="https://rs.oriflame.com/"
+      target="_blank"
+      style="text-decoration:none;color:#E88FA3;">
+
+      <i
+        class="fa fa-globe w3-hover-opacity"
+        title="Oriflame web sajt">
+      </i>
+
+    </a>
 
 
-<a
-  href="https://play.google.com/store/apps/details/Oriflame?id=com.oriflame.mv7.app&hl=sr&pli=1"
-  target="_blank"
-  style="
-    text-decoration:none;
-    color:#E88FA3;
-  ">
+    <a
+      href="https://rs.oriflame.com/catalogue?cataloguecode=2026013&PageNumber=1"
+      target="_blank"
+      style="text-decoration:none;color:#E88FA3;">
 
+      <i
+        class="fa fa-book w3-hover-opacity"
+        title="Oriflame katalog">
+      </i>
 
-<i class="fa fa-mobile w3-hover-opacity"></i>
+    </a>
 
-
-</a>
-
-
-<a
-  href="https://rs.oriflame.com/"
-  target="_blank"
-  style="
-    text-decoration:none;
-    color:#E88FA3;
-    margin-right:15px;
-  ">
-
-
-<i
-  class="fa fa-globe w3-hover-opacity"
-  title="Oriflame web sajt">
-</i>
-
-
-</a>
-
-
-<a
-  href="https://rs.oriflame.com/catalogue?cataloguecode=2026013&PageNumber=1"
-  target="_blank"
-  style="
-    text-decoration:none;
-    color:#E88FA3;
-  ">
-
-
-<i
-  class="fa fa-book w3-hover-opacity"
-  title="Oriflame katalog">
-</i>
-
-
-</a>
-
-
-</div>
+  </div>
 
 </div>
 
@@ -2230,226 +1782,179 @@ Zaprati me
 <hr>
 
 
-<!-- Subscribe -->
+<!-- PRETPLATI SE -->
 
 <div class="w3-white w3-margin">
 
+  <div
+    class="w3-container w3-padding"
+    style="background-color:#FFB6C1;">
 
-<div
-  class="w3-container w3-padding"
-  style="background-color:#FFB6C1;">
+    <h4>
+      Pretplatite se
+    </h4>
+
+  </div>
 
 
-<h4>
+  <div class="w3-container w3-white">
 
-Pretplatite se
+    <p>
+      Unesite svoj e-mail i pratite
+      najnovije Oriflame tekstove.
+    </p>
 
-</h4>
+    <p>
 
+      <input
+        class="w3-input w3-border"
+        type="text"
+        placeholder="Ime">
+
+    </p>
+
+    <p>
+
+      <input
+        class="w3-input w3-border"
+        type="text"
+        placeholder="Prezime">
+
+    </p>
+
+    <p>
+
+      <input
+        class="w3-input w3-border"
+        type="tel"
+        placeholder="Broj telefona">
+
+    </p>
+
+    <p>
+
+      <input
+        class="w3-input w3-border"
+        type="text"
+        placeholder="E-mail">
+
+    </p>
+
+
+    <button
+      type="button"
+      class="w3-button w3-block w3-padding-large w3-margin-bottom"
+      style="background-color:#FFB6C1"
+      onclick="document.getElementById('subscribe').style.display='block'">
+
+      PRETPLATI SE
+
+    </button>
+
+  </div>
 
 </div>
-
-
-<div class="w3-container w3-white">
-
-
-<p>
-
-Unesite svoj e-mail i pratite
-najnovije Oriflame tekstove.
-
-</p>
-
-
-<p>
-
-
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="Ime">
-
-
-</p>
-
-
-<p>
-
-
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="Prezime">
-
-
-</p>
-
-
-<p>
-
-
-<input
-  class="w3-input w3-border"
-  type="tel"
-  placeholder="Broj telefona">
-
-
-</p>
-
-
-<p>
-
-
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="E-mail">
-
-
-</p>
-
-
-<button
-  type="button"
-  class="w3-button w3-block w3-padding-large w3-margin-bottom"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('subscribe').style.display='none'">
-
-
-PRETPLATI SE
-
-
-</button>
 
 
 </div>
 
 </div>
-
-
-<!-- END About/Intro Menu -->
-
-</div>
-
-
-<!-- END GRID -->
-
-</div>
-
-
-<!-- END w3-content -->
 
 </div>
 
 
 <!-- ================================= -->
-<!-- Subscribe Modal -->
+<!-- PRETPLATA MODAL -->
 <!-- ================================= -->
 
 <div
   id="subscribe"
   class="w3-modal w3-animate-opacity">
 
+  <div
+    class="w3-modal-content"
+    style="padding:32px">
 
-<div
-  class="w3-modal-content"
-  style="padding:32px">
+    <div class="w3-container w3-white">
 
-
-<div class="w3-container w3-white">
-
-
-<i
-  onclick="document.getElementById('subscribe').style.display='none'"
-  class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right">
-</i>
+      <i
+        onclick="document.getElementById('subscribe').style.display='none'"
+        class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right">
+      </i>
 
 
-<h2 class="w3-wide">
-
-PRETPLATI SE
-
-</h2>
+      <h2 class="w3-wide">
+        PRETPLATI SE
+      </h2>
 
 
-<p>
+      <p>
 
-Prijavite se na Oriflame blog
-i pratite najnovije tekstove.
+        Prijavite se na Oriflame blog
+        i pratite najnovije tekstove.
 
-</p>
-
-
-<p>
+      </p>
 
 
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="Ime">
+      <p>
+
+        <input
+          class="w3-input w3-border"
+          type="text"
+          placeholder="Ime">
+
+      </p>
 
 
-</p>
+      <p>
+
+        <input
+          class="w3-input w3-border"
+          type="text"
+          placeholder="Prezime">
+
+      </p>
 
 
-<p>
+      <p>
+
+        <input
+          class="w3-input w3-border"
+          type="tel"
+          placeholder="Broj telefona">
+
+      </p>
 
 
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="Prezime">
+      <p>
+
+        <input
+          class="w3-input w3-border"
+          type="text"
+          placeholder="E-mail">
+
+      </p>
 
 
-</p>
+      <button
+        type="button"
+        class="w3-button w3-block w3-padding-large w3-margin-bottom"
+        style="background-color:#FFB6C1"
+        onclick="document.getElementById('subscribe').style.display='none'">
 
+        PRETPLATI SE
 
-<p>
+      </button>
 
+    </div>
 
-<input
-  class="w3-input w3-border"
-  type="tel"
-  placeholder="Broj telefona">
-
-
-</p>
-
-
-<p>
-
-
-<input
-  class="w3-input w3-border"
-  type="text"
-  placeholder="E-mail">
-
-
-</p>
-
-
-<button
-  type="button"
-  class="w3-button w3-block w3-padding-large w3-margin-bottom"
-  style="background-color:#FFB6C1"
-  onclick="document.getElementById('subscribe').style.display='none'">
-
-
-PRETPLATI SE
-
-
-</button>
-
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- ================================= -->
-<!-- Footer -->
+<!-- FOOTER -->
 <!-- ================================= -->
 
 <footer
@@ -2460,61 +1965,48 @@ PRETPLATI SE
     text-align:center;
   ">
 
+  <a
+    href="#home"
+    class="w3-button w3-padding-large w3-margin-bottom"
+    style="
+      background-color:#E88FA3;
+      color:white;
+      border-radius:6px;
+    ">
 
-<a
-  href="#home"
-  class="w3-button w3-padding-large w3-margin-bottom"
-  style="
-    background-color:#E88FA3;
-    color:white;
-    border-radius:6px;
-  ">
+    <i class="fa fa-arrow-up w3-margin-right"></i>
 
+    Nazad na vrh
 
-<i class="fa fa-arrow-up w3-margin-right"></i>
-
-Nazad na vrh
-
-
-</a>
+  </a>
 
 
-<p
-  style="
-    margin-top:15px;
-    color:black;
-  ">
+  <p style="margin-top:15px;color:black;">
+
+    Oriflame Beauty Blog
+
+  </p>
 
 
-Oriflame Beauty Blog
+  <p
+    style="
+      font-size:14px;
+      color:#555;
+      margin-top:5px;
+    ">
 
+    Lepota, nega i samopouzdanje
 
-</p>
-
-
-<p
-  style="
-    font-size:14px;
-    color:#555;
-    margin-top:5px;
-  ">
-
-
-Lepota, nega i samopouzdanje
-
-
-</p>
-
+  </p>
 
 </footer>
 
 
 <!-- ================================= -->
-<!-- JavaScript -->
+<!-- JAVASCRIPT -->
 <!-- ================================= -->
 
 <script>
-
 
 function myFunction(id) {
 
@@ -2542,10 +2034,8 @@ function likeFunction(x) {
 
 }
 
-
 </script>
 
 
 </body>
-
-	</html>
+	</html> 
